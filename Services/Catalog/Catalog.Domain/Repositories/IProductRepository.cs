@@ -5,10 +5,10 @@ namespace Catalog.Domain.Repositories;
 
 public interface IProductRepository
 {
-    Task<IQueryable<Product>> GetProducts(CatalogSpecParams catalogSpecParams);
-    Task<Product> GetProduct(string id);
-    Task<IEnumerable<Product>> GetProductByName(string name);
-    Task<IEnumerable<Product>> GetProductByBrand(string name);
+    Task<PaginatedList<Product>> GetProducts(CatalogSpecParams catalogSpecParams);
+    Task<Product> GetProductById(string id);
+    Task<IEnumerable<Product>> GetProductsByProductName(string name);
+    Task<IEnumerable<Product>> GetProductByBrandName(string name);
     Task<Product> CreateProduct(Product product);
     Task<bool> UpdateProduct(Product product);
     Task<bool> DeleteProduct(string id);
