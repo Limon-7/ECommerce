@@ -13,8 +13,8 @@ public static class DependencyInjection
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         services.AddMediatR(Assembly.GetExecutingAssembly());
-        services.AddScoped(typeof(IPipelineBehavior<,>),typeof(LoggingBehavior<,>));
-        services.AddScoped(typeof(IPipelineBehavior<,>),typeof(PerformanceBehavior<,>));
+        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
+        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(PerformanceBehavior<,>));
 
         return services;
     }

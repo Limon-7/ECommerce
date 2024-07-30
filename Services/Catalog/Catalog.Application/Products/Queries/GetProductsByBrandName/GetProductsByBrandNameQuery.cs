@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Catalog.Application.Products.Queries.GetProductsByBrandName;
 
-public class GetProductsByBrandNameQuery: IRequest<Response<IList<ProductResponse>>>
+public class GetProductsByBrandNameQuery : IRequest<Response<IList<ProductResponse>>>
 {
     public string BrandName { get; set; }
 
@@ -16,7 +16,8 @@ public class GetProductsByBrandNameQuery: IRequest<Response<IList<ProductRespons
     }
 }
 
-public class GetProductsByBrandNameQueryHandler : IRequestHandler<GetProductsByBrandNameQuery, Response<IList<ProductResponse>>>
+public class
+    GetProductsByBrandNameQueryHandler : IRequestHandler<GetProductsByBrandNameQuery, Response<IList<ProductResponse>>>
 {
     private readonly IProductRepository _repository;
     private readonly IMapper _mapper;
@@ -26,8 +27,11 @@ public class GetProductsByBrandNameQueryHandler : IRequestHandler<GetProductsByB
         _repository = repository;
         _mapper = mapper;
     }
-    public async Task<Response<IList<ProductResponse>>> Handle(GetProductsByBrandNameQuery request, CancellationToken cancellationToken)
+
+    public async Task<Response<IList<ProductResponse>>> Handle(GetProductsByBrandNameQuery request,
+        CancellationToken cancellationToken)
     {
-        return Response.Ok(_mapper.Map<IList<ProductResponse>>(await _repository.GetProductByBrandName(request.BrandName)));
+        return Response.Ok(
+            _mapper.Map<IList<ProductResponse>>(await _repository.GetProductByBrandName(request.BrandName)));
     }
 }

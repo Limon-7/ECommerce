@@ -5,9 +5,8 @@ using MediatR;
 
 namespace Catalog.Application.Brands.GetBrands;
 
-public class GetBrandsQuery: IRequest<Response<IList<BrandResponse>>>
+public class GetBrandsQuery : IRequest<Response<IList<BrandResponse>>>
 {
-    
 }
 
 public class GetBrandsQueryHandler : IRequestHandler<GetBrandsQuery, Response<IList<BrandResponse>>>
@@ -20,7 +19,9 @@ public class GetBrandsQueryHandler : IRequestHandler<GetBrandsQuery, Response<IL
         _brandRepository = brandRepository;
         _mapper = mapper;
     }
-    public async Task<Response<IList<BrandResponse>>> Handle(GetBrandsQuery request, CancellationToken cancellationToken)
+
+    public async Task<Response<IList<BrandResponse>>> Handle(GetBrandsQuery request,
+        CancellationToken cancellationToken)
     {
         var response = await _brandRepository.GetBrands();
         var data = _mapper.Map<IList<BrandResponse>>(response);

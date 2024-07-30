@@ -12,7 +12,6 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<Product, ProductResponse>().ReverseMap();
-        // CreateMap<Product, CreateProductCommand>().ReverseMap();
         CreateMap<Brand, BrandResponse>().ReverseMap();
         CreateMap<ProductType, ProductTypeResponse>().ReverseMap();
         CreateMap<PaginatedList<Product>, PaginatedList<ProductResponse>>().ReverseMap();

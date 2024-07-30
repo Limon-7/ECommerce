@@ -1,4 +1,5 @@
-namespace Catalog.Application.Common.Exceptions{
+namespace Catalog.Application.Common.Exceptions
+{
     public class NotFoundException : Exception
     {
         public NotFoundException()

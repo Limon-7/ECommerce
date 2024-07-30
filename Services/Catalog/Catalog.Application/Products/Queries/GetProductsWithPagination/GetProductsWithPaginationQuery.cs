@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Catalog.Application.Products.Queries.GetProductsWithPagination;
 
-public class GetProductsWithPaginationQuery: IRequest<Response<PaginatedList<ProductResponse>>>
+public class GetProductsWithPaginationQuery : IRequest<Response<PaginatedList<ProductResponse>>>
 {
     public CatalogSpecParams CatalogSpecParams { get; set; }
 
@@ -28,11 +28,12 @@ public class
         _repository = repository;
         _mapper = mapper;
     }
-    public async Task<Response<PaginatedList<ProductResponse>>> Handle(GetProductsWithPaginationQuery request, CancellationToken cancellationToken)
+
+    public async Task<Response<PaginatedList<ProductResponse>>> Handle(GetProductsWithPaginationQuery request,
+        CancellationToken cancellationToken)
     {
         var paginatedProducts = await _repository.GetProducts(request.CatalogSpecParams);
-        return Response.Ok<PaginatedList<ProductResponse>>(_mapper.Map<PaginatedList<ProductResponse>>(paginatedProducts));
+        return Response.Ok<PaginatedList<ProductResponse>>(
+            _mapper.Map<PaginatedList<ProductResponse>>(paginatedProducts));
     }
 }
-
-

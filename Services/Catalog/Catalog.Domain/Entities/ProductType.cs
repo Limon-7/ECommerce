@@ -4,8 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Catalog.Domain.Entities;
 
-public class ProductType: AuditableEntity
+public class ProductType : AuditableEntity
 {
-    [BsonElement("Name")]
-    public string Name { get; set; }
+    [BsonElement("Name")] public string Name { get; set; }
 }

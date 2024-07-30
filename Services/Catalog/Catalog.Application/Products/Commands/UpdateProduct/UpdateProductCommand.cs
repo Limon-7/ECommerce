@@ -7,7 +7,7 @@ using MediatR;
 
 namespace Catalog.Application.Products.Commands.UpdateProduct;
 
-public class UpdateProductCommand: IRequest<Response<ProductResponse>>
+public class UpdateProductCommand : IRequest<Response<ProductResponse>>
 {
     public string Id { get; }
     public string Name { get; }
@@ -15,7 +15,7 @@ public class UpdateProductCommand: IRequest<Response<ProductResponse>>
     public string Description { get; }
     public string ImageFile { get; }
     public decimal Price { get; }
-    public Brand Brands { get;  }
+    public Brand Brands { get; }
     public ProductType Types { get; }
 }
 
@@ -29,12 +29,14 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand,
         _repository = repository;
         _mapper = mapper;
     }
-    public async Task<Response<ProductResponse>> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
+
+    public async Task<Response<ProductResponse>> Handle(UpdateProductCommand request,
+        CancellationToken cancellationToken)
     {
         var entity = await _repository.GetProductById(request.Id);
-        if (entity==null)
+        if (entity == null)
             return Response.Fail<ProductResponse>($"Not found");
-        
+
         entity.Description = request.Description;
         entity.Brands = request.Brands;
         entity.ImageFile = request.ImageFile;
@@ -42,7 +44,7 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand,
         entity.Types = request.Types;
         entity.Summary = request.Summary;
         entity.Price = request.Price;
-        entity.LastModified=DateTime.UtcNow;
+        entity.LastModified = DateTime.UtcNow;
         entity.LastModifiedBy = "SystemUser";
 
         try

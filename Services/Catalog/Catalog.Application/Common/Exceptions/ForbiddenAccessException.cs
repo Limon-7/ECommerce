@@ -1,6 +1,9 @@
-namespace Catalog.Application.Common.Exceptions{
+namespace Catalog.Application.Common.Exceptions
+{
     public class ForbiddenAccessException : Exception
     {
-        public ForbiddenAccessException() : base() { }
+        public ForbiddenAccessException() : base()
+        {
+        }
     }
 }

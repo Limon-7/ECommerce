@@ -66,12 +66,13 @@ public class CatalogsController : ApiControllerBase
     [HttpPut]
     [Route("UpdateProduct")]
     [ProducesResponseType(typeof(Response<ProductResponse>), (int)HttpStatusCode.OK)]
-    public async Task<ActionResult<Response<ProductResponse>>> UpdateProduct([FromBody] UpdateProductCommand productCommand)
+    public async Task<ActionResult<Response<ProductResponse>>> UpdateProduct(
+        [FromBody] UpdateProductCommand productCommand)
     {
-        var response= await Mediator.Send(productCommand);
+        var response = await Mediator.Send(productCommand);
         return Ok(response);
     }
-    
+
     [HttpDelete]
     [Route("{id}", Name = "DeleteProduct")]
     [ProducesResponseType(typeof(NoContentResult), (int)HttpStatusCode.OK)]
