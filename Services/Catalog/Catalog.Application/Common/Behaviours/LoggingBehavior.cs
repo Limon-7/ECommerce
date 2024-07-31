@@ -16,7 +16,6 @@ namespace Catalog.Application.Common.Behaviours
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken,
             RequestHandlerDelegate<TResponse> next)
         {
-            _logger.LogInformation("Calling Logger Handler");
             var requestName = typeof(TRequest).Name;
             var response = await next();
             _logger.LogInformation($"Name: {requestName}  Request: {request} Response: {response}");
