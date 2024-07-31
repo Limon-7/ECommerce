@@ -39,9 +39,9 @@ public class CatalogsController : ApiControllerBase
     [HttpGet]
     [Route("[action]/{productName}", Name = "GetProductsByProductName")]
     [ProducesResponseType(typeof(Response<IList<ProductResponse>>), (int)HttpStatusCode.OK)]
-    public async Task<ActionResult<Response<IList<ProductResponse>>>> GetProductByProductName(string productName)
+    public async Task<ActionResult<Response<IList<ProductResponse>>>> GetProductsByProductName(string productName)
     {
-        return await Mediator.Send(new GetProductByProductNameQuery(productName));
+        return await Mediator.Send(new GetProductsByProductNameQuery(productName));
     }
 
     [HttpGet]

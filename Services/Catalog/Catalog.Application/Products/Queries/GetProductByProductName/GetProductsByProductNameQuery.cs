@@ -5,27 +5,27 @@ using MediatR;
 
 namespace Catalog.Application.Products.Queries.GetProductByProductName;
 
-public class GetProductByProductNameQuery : IRequest<Response<IList<ProductResponse>>>
+public class GetProductsByProductNameQuery : IRequest<Response<IList<ProductResponse>>>
 {
     public string Name { get; set; }
 
-    public GetProductByProductNameQuery(string name) => Name = name;
+    public GetProductsByProductNameQuery(string name) => Name = name;
 }
 
 public class
-    GetProductByProductNameQueryHandler : IRequestHandler<GetProductByProductNameQuery,
+    GetProductsByProductNameQueryHandler : IRequestHandler<GetProductsByProductNameQuery,
         Response<IList<ProductResponse>>>
 {
     private readonly IProductRepository _repository;
     private readonly IMapper _mapper;
 
-    public GetProductByProductNameQueryHandler(IProductRepository repository, IMapper mapper)
+    public GetProductsByProductNameQueryHandler(IProductRepository repository, IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
     }
 
-    public async Task<Response<IList<ProductResponse>>> Handle(GetProductByProductNameQuery request,
+    public async Task<Response<IList<ProductResponse>>> Handle(GetProductsByProductNameQuery request,
         CancellationToken cancellationToken)
     {
         return Response.Ok(
