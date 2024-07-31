@@ -10,14 +10,11 @@ using Catalog.Application.Products.Queries.GetProductByProductName;
 using Catalog.Application.Products.Queries.GetProductsByBrandName;
 using Catalog.Application.Products.Queries.GetProductsWithPagination;
 using Catalog.Application.ProductTypes.GetProductTypes;
-using Catalog.Domain.Entities;
 using Catalog.Domain.Specs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Catalog.API.Controllers;
 
-[ApiController]
-[Route("[controller]")]
 public class CatalogsController : ApiControllerBase
 {
     #region Product
@@ -62,7 +59,7 @@ public class CatalogsController : ApiControllerBase
     {
         return await Mediator.Send(productCommand);
     }
-    
+
     [HttpPut]
     [Route("UpdateProduct")]
     [ProducesResponseType(typeof(Response<ProductResponse>), (int)HttpStatusCode.OK)]

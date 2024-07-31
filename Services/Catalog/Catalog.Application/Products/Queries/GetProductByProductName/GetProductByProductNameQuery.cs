@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using AutoMapper;
+﻿using AutoMapper;
 using Catalog.Application.Common.Models;
 using Catalog.Domain.Repositories;
 using MediatR;
