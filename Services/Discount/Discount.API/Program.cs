@@ -1,10 +1,16 @@
+using Discount.API.Services;
+using Discount.Application;
+using Discount.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
@@ -20,6 +26,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.MapGrpcService<DiscountService>();
+app.MapGet("/",
+    () =>
+        "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
 app.MapControllers();
 
 app.Run();
