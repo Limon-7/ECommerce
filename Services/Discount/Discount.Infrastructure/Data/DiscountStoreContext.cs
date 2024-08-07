@@ -48,7 +48,7 @@ public static class DiscountStoreContext
                                                 Amount INT)";
         cmd.ExecuteNonQuery();
         
-        cmd.CommandText = "INSERT INTO Coupon(ProductId, ProductName, Description, Amount) VALUES('602d2149e773f2a3990b47f5',''Adidas Quick Force Indoor Badminton Shoes', 'Shoe Discount', 500);";
+        cmd.CommandText = "INSERT INTO Coupon(ProductId, ProductName, Description, Amount) VALUES('602d2149e773f2a3990b47f5','Adidas Quick Force Indoor Badminton Shoes', 'Shoe Discount', 500);";
         cmd.ExecuteNonQuery();
     }
 }
