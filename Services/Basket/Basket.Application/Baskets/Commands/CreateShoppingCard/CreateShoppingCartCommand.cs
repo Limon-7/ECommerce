@@ -30,6 +30,7 @@ public class
     public async Task<ApiResponse<ShoppingCartResponse>> Handle(CreateShoppingCartCommand request, CancellationToken cancellationToken)
     {
         var response = await _service.UpdateBasket(new ShoppingCart(request.UserName, request.Items));
-        return ApiResponse.Ok(BasketMapper.Mapper.Map<ShoppingCartResponse>(response));
+        var data = BasketMapper.Mapper.Map<ShoppingCartResponse>(response);
+        return ApiResponse.Ok(data);
     }
 }

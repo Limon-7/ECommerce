@@ -12,7 +12,7 @@ public class ShoppingCartItem
     }
 
     public int Quantity { get; private set; }
-    public decimal Price { get; private set; }
+    public decimal Price { get; set; }
     public string ProductId { get; private set; }
     public string ImageFile { get; private set; }
     public string ProductName { get; private set; }
