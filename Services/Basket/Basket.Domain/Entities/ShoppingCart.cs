@@ -2,8 +2,8 @@
 
 public class ShoppingCart
 {
-    public string UserName { get; private set; } = null!;
-    public List<ShoppingCartItem> Items { get; private set; } = null!;
+    public string UserName { get;  set; } = null!;
+    public List<ShoppingCartItem> Items { get;  set; } = null!;
 
     public ShoppingCart()
     {

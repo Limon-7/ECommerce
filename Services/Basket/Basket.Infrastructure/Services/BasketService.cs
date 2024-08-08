@@ -27,7 +27,8 @@ public class BasketService: IBasketService
     public async Task<ShoppingCart> UpdateBasket(ShoppingCart shoppingCart)
     {
         await _redisCache.SetStringAsync(shoppingCart.UserName, JsonConvert.SerializeObject(shoppingCart));
-        return await GetBasket(shoppingCart.UserName);
+        var response= await GetBasket(shoppingCart.UserName);
+        return response;
     }
 
     public async Task DeleteBasket(string userName)
