@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Discount.Application.Queries.GetDiscountByProductId;
 using Discount.Domain.Entities;
 using Discount.Domain.Repositories;
 using Microsoft.Extensions.Configuration;
@@ -19,12 +20,12 @@ public class DiscountRepository : IDiscountRepository
     {
         await using var connection =
             new NpgsqlConnection(_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
-        var coupon = await connection.QueryFirstOrDefaultAsync<Coupon>
+        var coupon = await connection.QueryFirstOrDefaultAsync<DiscountByProductResponse>
             ("SELECT * FROM Coupon WHERE ProductId = @ProductId", new { ProductId = productId });
         if (coupon == null)
             return new Coupon(productId: productId, productName: "No Discount", amount: 0,
                 description: "No Discount Available");
-        return coupon;
+        return new Coupon(coupon.ProductId,coupon.ProductName,coupon.Description,coupon.Amount,coupon.Id);
     }
 
     public async Task<bool> CreateDiscount(Coupon coupon)
