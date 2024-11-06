@@ -2,8 +2,9 @@
 using Ordering.Application.Common.Interfaces;
 using Ordering.Domain.Entities;
 using Ordering.Infrastructure.Persistence;
+using Ordering.Infrastructure.Repositories;
 
-namespace Ordering.Infrastructure.Repositories;
+namespace Ordering.Infrastructure.Services;
 
 public class OrderService : GenericRepository<Order>, IOrderService
 {

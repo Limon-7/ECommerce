@@ -5,6 +5,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Ordering.Application.Common.Interfaces;
 using Ordering.Domain.Common;
 using Ordering.Infrastructure.Repositories;
+using Ordering.Infrastructure.Services;
 
 namespace Ordering.Infrastructure;
 
@@ -18,6 +19,7 @@ public static class DependencyInjection
             .AddSqlServer(configuration["ConnectionStrings:defaultConnection"]!, "SELECT 1", "Sql Server",
                 HealthStatus.Degraded);
         services.AddScoped<IOrderService, OrderService>();
+        services.AddScoped<IDateTime, DateTimeService>();
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
         return services;
