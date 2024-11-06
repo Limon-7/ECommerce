@@ -1,6 +1,6 @@
 ﻿namespace EventBus.Service.Events;
 
-public class BasketCheckoutPlacedEvent: BaseServiceBusEvent
+public class BasketCheckoutPlacedEvent : BaseServiceBusEvent
 {
     public string? UserName { get; set; }
     public decimal? TotalPrice { get; set; }
