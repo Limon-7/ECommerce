@@ -1,4 +1,5 @@
-﻿using Ordering.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Ordering.Domain.Entities;
 
 namespace Ordering.Infrastructure.Persistence;
 
@@ -35,7 +36,7 @@ public static class SeedOrderDbContext
                 Expiration = "12/25",
                 Cvv = "123",
                 PaymentMethod = 1,
-                LastModifiedBy = "Rahul",
+                LastModifiedBy = "limon",
                 LastModified = new DateTime(),
             }
         };
