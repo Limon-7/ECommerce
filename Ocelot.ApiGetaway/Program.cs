@@ -6,10 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddJsonFile($"ocelot.{builder.Environment.EnvironmentName}.json", true, true);
 builder.Services.AddOcelot(builder.Configuration)
-    .AddCacheManager(x =>
-    {
-        x.WithDictionaryHandle();
-    });
+    .AddCacheManager(x => { x.WithDictionaryHandle(); });
 
 
 var app = builder.Build();
