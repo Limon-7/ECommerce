@@ -51,6 +51,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructures", "Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Service", "Infrastructures\EventBus.Service\EventBus.Service.csproj", "{62F72C52-2930-4BBC-AFC8-7243599443C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocelot.ApiGetaway", "Ocelot.ApiGetaway\Ocelot.ApiGetaway.csproj", "{55E7140D-D233-4BC8-9650-D8FDC68FBD2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -128,6 +130,10 @@ Global
 		{62F72C52-2930-4BBC-AFC8-7243599443C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62F72C52-2930-4BBC-AFC8-7243599443C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62F72C52-2930-4BBC-AFC8-7243599443C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55E7140D-D233-4BC8-9650-D8FDC68FBD2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55E7140D-D233-4BC8-9650-D8FDC68FBD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55E7140D-D233-4BC8-9650-D8FDC68FBD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55E7140D-D233-4BC8-9650-D8FDC68FBD2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2C0E3CD9-0210-4A59-9045-F135BA1A6D2B} = {11C72D2F-AA41-4E12-820A-64511B1FBE49}
